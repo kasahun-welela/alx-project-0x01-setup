@@ -1,4 +1,4 @@
-import { UserData, UserProps } from "@/interfaces";
+import { UserProps } from "@/interfaces";
 import UserCard from "@/components/common/UserCard";
 import UserModal from "@/components/common/UserModal";
 import Header from "@/components/layout/Header";
@@ -8,7 +8,7 @@ const Users: React.FC<{ users: UserProps[] }> = ({ users }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [userList, setUserList] = useState(users);
 
-  const handleAddUser = (newUser: UserData) => {
+  const handleAddUser = (newUser: UserProps) => {
     setUserList([...userList, newUser]);
   };
 

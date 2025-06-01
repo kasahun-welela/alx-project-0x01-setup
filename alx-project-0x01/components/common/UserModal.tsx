@@ -1,8 +1,8 @@
-import { UserData, UserModalProps } from "@/interfaces";
+import { UserProps, UserModalProps } from "@/interfaces";
 import { useState } from "react";
 
 const UserModal: React.FC<UserModalProps> = ({ onClose, onSubmit }) => {
-  const [formData, setFormData] = useState<Partial<UserData>>({
+  const [formData, setFormData] = useState<Partial<UserProps>>({
     name: "",
     username: "",
     email: "",
@@ -27,7 +27,7 @@ const UserModal: React.FC<UserModalProps> = ({ onClose, onSubmit }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(formData as UserData);
+    onSubmit(formData as UserProps);
     onClose();
   };
 
@@ -39,7 +39,7 @@ const UserModal: React.FC<UserModalProps> = ({ onClose, onSubmit }) => {
       setFormData((prev) => ({
         ...prev,
         [parent]: {
-          ...(prev[parent as keyof UserData] as { [key: string]: any }),
+          ...(prev[parent as keyof UserProps] as { [key: string]: any }),
           [child]: value,
         },
       }));
